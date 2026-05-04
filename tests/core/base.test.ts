@@ -1,5 +1,5 @@
 import { assertType, expectTypeOf, expect, test } from "vitest";
-import { Base } from "../../src/core/base";
+import Base from "../../src/core/base";
 
 const testBase = new Base();
 

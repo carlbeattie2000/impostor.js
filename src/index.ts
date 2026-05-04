@@ -1,4 +1,4 @@
-import { Base } from "./core/base";
+import Base from "./core/base";
 import locales from "./locales";
 import { ColorModule } from "./modules/colors";
 import { CryptoModule } from "./modules/crypto";

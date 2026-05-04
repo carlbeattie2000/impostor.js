@@ -1,4 +1,4 @@
-import { Base } from "../../core/base";
+import Base from "../../core/base";
 
 interface DangerousGood {
   un: string;

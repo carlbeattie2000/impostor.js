@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 import { AddressObject, Location } from "../types/locales";
 
 export class LocationLocale extends Base {

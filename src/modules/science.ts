@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 
 import scienceData from "../data/science.json";
 

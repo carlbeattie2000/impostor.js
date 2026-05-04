@@ -1,4 +1,4 @@
-import { Base } from "../../core/base";
+import Base from "../../core/base";
 
 const charNumericValueMapping: Record<string, number> = {
   A: 10,

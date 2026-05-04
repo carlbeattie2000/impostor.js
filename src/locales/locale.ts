@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 import { LocaleData } from "../types/locales";
 import { FinanceLocale } from "./finance";
 import { InternetLocale } from "./internet";

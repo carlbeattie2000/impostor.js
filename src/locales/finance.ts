@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 import { CardTemplate, Finance, TransactionObject } from "../types/locales";
 
 export class FinanceLocale extends Base {

@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 
 import cryptoData from "../data/crypto.json";
 

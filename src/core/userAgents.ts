@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { versions } from "process";
-import { Base } from "./base";
+import Base from "./base";
 
 // Copyright (c) 2012-2014 Jeffrey Mealo
 

@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 import { Vehicle } from "../types/locales";
 
 export class VehicleLocale extends Base {

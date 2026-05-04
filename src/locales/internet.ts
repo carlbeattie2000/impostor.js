@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 import { UserAgent } from "../core/userAgents";
 import { Internet } from "../types/locales";
 import internetGlobalData from "../data/internet.json";

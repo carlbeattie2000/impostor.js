@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 
 import timezoneData from "../data/timezones.json";
 import { localeCodes } from "../types/locales";

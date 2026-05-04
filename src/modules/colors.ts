@@ -1,4 +1,4 @@
-import { Base } from "../core/base";
+import Base from "../core/base";
 
 export class ColorModule extends Base {
   constructor() {
