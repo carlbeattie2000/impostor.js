@@ -2,7 +2,7 @@ import { randomBytes, randomInt } from "node:crypto";
 
 import { templateFunctions } from "./stringTemplates";
 
-export class Base {
+export default class Base {
   alpha: string[];
 
   constructor() {
@@ -79,7 +79,7 @@ export class Base {
       throw Error("Out of range! Min should not be larger than the max!");
     }
 
-    const range = max - min;
+    const range = max - min + 1;
 
     const byteSize = Math.ceil(Number(range.toString(2).length) / 8);
     const randomBytesCreated = Buffer.concat([
@@ -97,14 +97,14 @@ export class Base {
     return parseFloat((Math.random() * max).toFixed(fixed));
   }
 
-  days_passed(dt: Date) {
+  days_passed(dt: Date): number {
     const current = new Date(dt.getTime()).getMilliseconds();
     const previous = new Date(dt.getFullYear(), 0, 1).getMilliseconds();
 
     return Math.ceil((current - previous + 1) / 8.64e7);
   }
 
-  randomDateString(minYear = 1970, maxYear = 2023) {
+  randomDateString(minYear = 1970, maxYear = 2023): string {
     const dateNow = new Date();
     const currentYear = dateNow.getFullYear();
     const yearInMs = 3.154e10;
@@ -188,6 +188,7 @@ export class Base {
    */
   randomStringFormatter(template: string) {
     return template.replace(/(#|\?|~|DD|MM|(YYYY|YY))/g, (char) => {
+      // eslint-disable-next-line n/no-unsupported-features/es-builtins, n/no-unsupported-features/es-syntax
       if (Object.hasOwn(templateFunctions, char)) {
         const key = char as keyof typeof templateFunctions;
         return templateFunctions[key]().toString();
