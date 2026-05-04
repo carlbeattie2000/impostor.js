@@ -1,6 +1,7 @@
-import { assertType, expectTypeOf, expect, test } from "vitest";
-import { PhoneLocale } from "../../src/locales/phone";
+import { assertType, expect, expectTypeOf, test } from "vitest";
+
 import enGBData from "../../src/data/locales/en_GB.json";
+import PhoneLocale from "../../src/locales/phone";
 
 const testPhone = new PhoneLocale(enGBData.phone);
 

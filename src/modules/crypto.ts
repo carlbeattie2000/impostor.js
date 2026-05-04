@@ -1,14 +1,9 @@
 import Base from "../core/base";
-
 import cryptoData from "../data/crypto.json";
 
-export class CryptoModule extends Base {
-  constructor() {
-    super();
-  }
-
+export default class CryptoModule extends Base {
   ethereumAddress(): string {
-    return "0x" + this.randomBytesString(20).toUpperCase();
+    return `0x${this.randomBytesString(20).toUpperCase()}`;
   }
 
   bitcoinAddress(): string {
@@ -23,7 +18,7 @@ export class CryptoModule extends Base {
   }
 
   cardanoAddress(): string {
-    return "addr" + this.randomBytesString(49);
+    return `addr${this.randomBytesString(49)}`;
   }
 
   coin(): string {

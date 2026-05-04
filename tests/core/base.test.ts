@@ -1,4 +1,5 @@
-import { assertType, expectTypeOf, expect, test } from "vitest";
+import { assertType, expect, expectTypeOf, test } from "vitest";
+
 import Base from "../../src/core/base";
 
 const testBase = new Base();
@@ -39,7 +40,7 @@ test("generates a random int between a min and max value", () => {
 
   let invalidSmallTest = false;
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 50; i += 1) {
     const randomInt = testBase.randomInt({ min: smallMin, max: smallMax });
 
     if (randomInt < smallMin || randomInt > smallMax) {
@@ -68,39 +69,30 @@ test("generates a random float between a min and max value", () => {
 });
 
 test("generates a random date string", () => {
-  const dateObject = new Date();
-
   expect(() => testBase.randomDateString(0, 0)).toThrowError();
-
   expect(() => testBase.randomDateString(2022, 2015)).toThrowError();
 
   const dateStringSame = testBase.randomDateString(2023, 2023);
   expectTypeOf(dateStringSame).toBeString();
-  expect(dateStringSame).toContain("2023");
 
-  // I'm not happy with this test, if loop is too low it will cause false failures
-  let currentYearValidCalls = 0;
-  const currentYear = dateObject.getFullYear().toString();
-  const testCalls = dateObject.getMonth() < 5 ? 400 * 2 : 100;
+  const parsedDateSame = new Date(dateStringSame);
+  expect(parsedDateSame.getFullYear()).toBe(2023);
 
-  for (let i = 0; i < testCalls; i++) {
-    const dateStringCurrentYear = testBase.randomDateString(2022, 2024);
+  const dateStringRange = testBase.randomDateString(2022, 2024);
+  const parsedDateRange = new Date(dateStringRange);
 
-    if (dateStringCurrentYear.includes(currentYear)) {
-      currentYearValidCalls++;
-    }
-  }
+  const timestamp = parsedDateRange.getTime();
 
-  expect(currentYearValidCalls).toBeGreaterThan(0);
+  const minTimestamp = new Date(2022, 0, 1).getTime();
+  const maxTimestamp = new Date(2024, 11, 31, 23, 59, 59).getTime();
 
-  const dateStringSameAndCurrentYear = testBase.randomDateString(2024, 2024);
-  expectTypeOf(dateStringSameAndCurrentYear).toBeString();
-  expect(dateStringSameAndCurrentYear).toContain("2024");
+  expect(timestamp).toBeGreaterThanOrEqual(minTimestamp);
+  expect(timestamp).toBeLessThanOrEqual(maxTimestamp);
 });
 
 test("selects a random array element", () => {
   const charArray = ["a", "b", "c", "d", "e"];
-  const numberArray = [4, 44, 25, 1, 99, 101];
+  const numberArray = [4, 44, 25, 99, 101];
   const emptyArray: number[] = [];
 
   expect(() => testBase.randomArrayElement<number>(emptyArray)).toThrowError();

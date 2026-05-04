@@ -1,7 +1,8 @@
 import Base from "../core/base";
-import { AddressObject, Location } from "../types/locales";
 
-export class LocationLocale extends Base {
+import type { AddressObject, Location } from "../types/locales";
+
+export default class LocationLocale extends Base {
   locationData: Location;
 
   constructor(locationData: Location) {
@@ -33,13 +34,9 @@ export class LocationLocale extends Base {
 
     const prefix = this.randomArrayElement<string>(this.locationData.postcodes);
 
-    return (
-      prefix +
-      this.randomInt({ max: 100 }).toString() +
-      " " +
-      this.randomInt({ max: 10 }).toString() +
-      this.randomString(2)
-    );
+    return `${
+      prefix + this.randomInt({ max: 100 }).toString()
+    } ${this.randomInt({ max: 10 }).toString()}${this.randomString(2)}`;
   }
 
   zip(): string {
@@ -67,7 +64,7 @@ export class LocationLocale extends Base {
   }
 
   streetAddress(): string {
-    return this.buildingNumber() + " " + this.street() + ", " + this.city();
+    return `${this.buildingNumber()} ${this.street()}, ${this.city()}`;
   }
 
   address(): AddressObject {

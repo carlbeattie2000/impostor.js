@@ -1,7 +1,8 @@
 import Base from "../core/base";
-import { Vehicle } from "../types/locales";
 
-export class VehicleLocale extends Base {
+import type { Vehicle } from "../types/locales";
+
+export default class VehicleLocale extends Base {
   vehicleData: Vehicle;
 
   constructor(vehicleData: Vehicle) {

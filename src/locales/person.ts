@@ -1,7 +1,8 @@
 import Base from "../core/base";
-import { Person } from "../types/locales";
 
-export class PersonLocale extends Base {
+import type { Person } from "../types/locales";
+
+export default class PersonLocale extends Base {
   personData: Person;
 
   constructor(personData: Person) {
@@ -26,11 +27,9 @@ export class PersonLocale extends Base {
         ? this.randomArrayElement<"male" | "female">(["male", "female"])
         : sexI;
 
-    return (
-      this.randomArrayElement<string>(this.personData.names.firstNames[sex]) +
-      " " +
-      this.randomArrayElement<string>(this.personData.names.lastNames)
-    );
+    return `${this.randomArrayElement<string>(
+      this.personData.names.firstNames[sex],
+    )} ${this.randomArrayElement<string>(this.personData.names.lastNames)}`;
   }
 
   sex(): string {
@@ -42,13 +41,11 @@ export class PersonLocale extends Base {
   }
 
   email(): string {
-    return (
+    return `${
       this.firstName().toLowerCase() +
       this.randomArrayElement<string>(["_", "-", "&", ""]) +
-      this.lastName() +
-      "@" +
-      this.randomArrayElement<string>(this.personData.emailExtensions)
-    );
+      this.lastName()
+    }@${this.randomArrayElement<string>(this.personData.emailExtensions)}`;
   }
 
   jobTitle(): string {

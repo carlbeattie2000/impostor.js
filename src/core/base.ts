@@ -1,6 +1,6 @@
 import { randomBytes, randomInt } from "node:crypto";
 
-import { templateFunctions } from "./stringTemplates";
+import templateFunctions from "./stringTemplates";
 
 export default class Base {
   alpha: string[];
@@ -79,7 +79,7 @@ export default class Base {
       throw Error("Out of range! Min should not be larger than the max!");
     }
 
-    const range = max - min + 1;
+    const range = max - min;
 
     const byteSize = Math.ceil(Number(range.toString(2).length) / 8);
     const randomBytesCreated = Buffer.concat([
@@ -104,14 +104,7 @@ export default class Base {
     return Math.ceil((current - previous + 1) / 8.64e7);
   }
 
-  randomDateString(minYear = 1970, maxYear = 2023): string {
-    const dateNow = new Date();
-    const currentYear = dateNow.getFullYear();
-    const yearInMs = 3.154e10;
-    const dayInMs = 8.64e7;
-
-    let yearGapInMs = (maxYear - minYear) * yearInMs;
-
+  randomDateString(minYear = 1970, maxYear = new Date().getFullYear()): string {
     if (minYear === 0 || maxYear === 0) {
       throw new Error("Min or max should not be zero!");
     }
@@ -120,29 +113,18 @@ export default class Base {
       throw new Error("Min year should not be larger than max!");
     }
 
-    const maxYearIsCurrentYear = maxYear === currentYear && minYear !== maxYear;
-    const sameYearAndCurrentYear =
-      minYear === maxYear && maxYear === currentYear;
-    const sameYear = minYear === maxYear && maxYear !== currentYear;
+    const startTimestamp = new Date(minYear, 0, 1).getTime(); // Jan 1st of minYear
 
-    if (sameYearAndCurrentYear) {
-      dateNow.setFullYear(maxYear);
+    const endTimestamp =
+      maxYear === new Date().getFullYear()
+        ? new Date().getTime()
+        : new Date(maxYear, 11, 31, 23, 59, 59).getTime();
 
-      yearGapInMs = this.days_passed(dateNow) * dayInMs;
-    }
+    const gap = endTimestamp - startTimestamp;
 
-    if (sameYear) {
-      yearGapInMs = yearInMs;
-    }
+    const randomTimestamp = startTimestamp + this.randomInt({ max: gap });
 
-    if (maxYearIsCurrentYear) {
-      yearGapInMs -= yearInMs;
-      yearGapInMs += this.days_passed(dateNow) * dayInMs;
-    }
-
-    return new Date(
-      +new Date() - Math.floor(this.randomInt({ max: yearGapInMs })),
-    ).toLocaleString();
+    return new Date(randomTimestamp).toISOString();
   }
 
   randomArrayElement<T>(array: readonly T[]): T {
@@ -186,12 +168,11 @@ export default class Base {
    * @param {string} template - The template string
    * @return {string} The template string, with the template values been replaced with the correct data.
    */
-  randomStringFormatter(template: string) {
-    return template.replace(/(#|\?|~|DD|MM|(YYYY|YY))/g, (char) => {
-      // eslint-disable-next-line n/no-unsupported-features/es-builtins, n/no-unsupported-features/es-syntax
-      if (Object.hasOwn(templateFunctions, char)) {
-        const key = char as keyof typeof templateFunctions;
-        return templateFunctions[key]().toString();
+  randomStringFormatter(template: string): string {
+    return template.replace(/(?:#|\?|~|DD|MM|(?:YYYY|YY))/g, (char) => {
+      if (char in templateFunctions) {
+        const mappedFn = templateFunctions[char];
+        return mappedFn().toString();
       }
 
       return char;

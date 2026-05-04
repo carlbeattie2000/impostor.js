@@ -1,5 +1,6 @@
-import { assertType, expectTypeOf, expect, test } from "vitest";
-import { CryptoModule } from "../../src/modules/crypto";
+import { assertType, expect, expectTypeOf, test } from "vitest";
+
+import CryptoModule from "../../src/modules/crypto";
 
 const testCrypto = new CryptoModule();
 

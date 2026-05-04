@@ -1,13 +1,9 @@
 import Base from "../core/base";
-
 import timezoneData from "../data/timezones.json";
-import { localeCodes } from "../types/locales";
 
-export class TimezoneModule extends Base {
-  constructor() {
-    super();
-  }
+import type { localeCodes } from "../types/locales";
 
+export default class TimezoneModule extends Base {
   timezone(): string {
     return this.randomArrayElement<string>(timezoneData.timezones);
   }

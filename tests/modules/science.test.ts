@@ -1,5 +1,6 @@
-import { assertType, expectTypeOf, expect, test } from "vitest";
-import { ScienceModule } from "../../src/modules/science";
+import { assertType, expect, expectTypeOf, test } from "vitest";
+
+import ScienceModule from "../../src/modules/science";
 
 const testScience = new ScienceModule();
 

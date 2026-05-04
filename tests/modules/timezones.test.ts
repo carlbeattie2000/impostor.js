@@ -1,5 +1,6 @@
-import { assertType, expectTypeOf, expect, test } from "vitest";
-import { TimezoneModule } from "../../src/modules/timezones";
+import { assertType, expect, expectTypeOf, test } from "vitest";
+
+import TimezoneModule from "../../src/modules/timezones";
 
 const testTimezone = new TimezoneModule();
 

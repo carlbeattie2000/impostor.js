@@ -1,7 +1,12 @@
 import Base from "../core/base";
-import { CardTemplate, Finance, TransactionObject } from "../types/locales";
 
-export class FinanceLocale extends Base {
+import type {
+  CardTemplate,
+  Finance,
+  TransactionObject,
+} from "../types/locales";
+
+export default class FinanceLocale extends Base {
   financeData: Finance;
 
   constructor(financeData: Finance) {
@@ -22,7 +27,7 @@ export class FinanceLocale extends Base {
       cardTemplate.cardNumberTemplates,
     );
 
-    return parseInt(this.randomStringFormatter(numberTemplate));
+    return parseInt(this.randomStringFormatter(numberTemplate), 10);
   }
 
   cvv(): number {
@@ -30,10 +35,16 @@ export class FinanceLocale extends Base {
       this.financeData.cardTemplates,
     );
 
-    return parseInt(this.randomStringFormatter(cardTemplate.cvvTemplate));
+    return parseInt(this.randomStringFormatter(cardTemplate.cvvTemplate), 10);
   }
 
-  expiryDateObject({ min = 2022, max = 2028 }): Date {
+  expiryDateObject({
+    min = 2022,
+    max = 2028,
+  }: {
+    min: number;
+    max: number;
+  }): Date {
     if (min > 9999 || max < 1000) {
       throw new Error("Range must be between 1000, 9999!");
     }
@@ -48,7 +59,13 @@ export class FinanceLocale extends Base {
     return date;
   }
 
-  expiryDateString({ min = 2022, max = 2028 }): string {
+  expiryDateString({
+    min = 2022,
+    max = 2028,
+  }: {
+    min: number;
+    max: number;
+  }): string {
     if (min > 9999 || max < 1000) {
       throw new Error("Range must be between 1000, 9999!");
     }
@@ -56,11 +73,9 @@ export class FinanceLocale extends Base {
     const month = this.randomInt({ max: 11 });
     const year = this.randomInt({ min, max });
 
-    return (
-      (month < 10 ? "0" + month.toString() : month.toString()) +
-      "/" +
-      year.toString().slice(2)
-    );
+    return `${month < 10 ? `0${month.toString()}` : month.toString()}/${year
+      .toString()
+      .slice(2)}`;
   }
 
   sortCode(): number {
@@ -70,6 +85,7 @@ export class FinanceLocale extends Base {
 
     return parseInt(
       this.randomStringFormatter(cardTemplate.sortNumberTemplate),
+      10,
     );
   }
 
@@ -80,10 +96,11 @@ export class FinanceLocale extends Base {
 
     return parseInt(
       this.randomStringFormatter(cardTemplate.accountNumberTemplate),
+      10,
     );
   }
 
-  currencyValueString({ max = 500 }): string {
+  currencyValueString({ max = 500 }: { max: number }): string {
     return this.randomFloat(max).toLocaleString(
       this.financeData.currency.countryCode,
       { style: "currency", currency: this.financeData.currency.shorthand },

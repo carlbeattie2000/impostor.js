@@ -1,10 +1,6 @@
 import Base from "../core/base";
 
-export class ColorModule extends Base {
-  constructor() {
-    super();
-  }
-
+export default class ColorModule extends Base {
   rgb(): number[] {
     return new Array(3).fill(0).map((_) => this.randomInt({ max: 255 }));
   }
@@ -22,12 +18,10 @@ export class ColorModule extends Base {
   }
 
   hex(): string {
-    return (
-      "#" +
-      new Array(6)
-        .fill(0)
-        .map((_) => ~~this.randomInt({ max: 16 }).toString(16))
-    );
+    return `#${new Array(6)
+      .fill(0)
+      .map(() => this.randomInt({ max: 15 }).toString(16))
+      .join("")}`;
   }
 
   hsl(): number[] {

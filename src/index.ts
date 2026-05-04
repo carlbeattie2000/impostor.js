@@ -1,18 +1,18 @@
 import Base from "./core/base";
 import locales from "./locales";
-import { ColorModule } from "./modules/colors";
-import { CryptoModule } from "./modules/crypto";
-import { ScienceModule } from "./modules/science";
+import ColorModule from "./modules/colors";
+import CryptoModule from "./modules/crypto";
+import ScienceModule from "./modules/science";
 import ShippingModule from "./modules/shipping/shipping";
-import { TimezoneModule } from "./modules/timezones";
+import TimezoneModule from "./modules/timezones";
 
-import type { FinanceLocale } from "./locales/finance";
-import type { InternetLocale } from "./locales/internet";
-import type { Locale } from "./locales/locale";
-import type { LocationLocale } from "./locales/location";
-import type { PersonLocale } from "./locales/person";
-import type { PhoneLocale } from "./locales/phone";
-import type { VehicleLocale } from "./locales/vehicle";
+import type FinanceLocale from "./locales/finance";
+import type InternetLocale from "./locales/internet";
+import type Locale from "./locales/locale";
+import type LocationLocale from "./locales/location";
+import type PersonLocale from "./locales/person";
+import type PhoneLocale from "./locales/phone";
+import type VehicleLocale from "./locales/vehicle";
 import type { localeCodes } from "./types/locales";
 
 export default class Impostor extends Base {

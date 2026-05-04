@@ -1,4 +1,5 @@
-import { expectTypeOf, expect, test } from "vitest";
+import { expect, expectTypeOf, test } from "vitest";
+
 import { UserAgent } from "../../src/core/userAgents";
 
 const testAgent = new UserAgent();

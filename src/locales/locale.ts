@@ -1,18 +1,24 @@
+import FinanceLocale from "./finance";
+import InternetLocale from "./internet";
+import LocationLocale from "./location";
+import PersonLocale from "./person";
+import PhoneLocale from "./phone";
+import VehicleLocale from "./vehicle";
 import Base from "../core/base";
-import { LocaleData } from "../types/locales";
-import { FinanceLocale } from "./finance";
-import { InternetLocale } from "./internet";
-import { LocationLocale } from "./location";
-import { PersonLocale } from "./person";
-import { PhoneLocale } from "./phone";
-import { VehicleLocale } from "./vehicle";
 
-export class Locale extends Base {
+import type { LocaleData } from "../types/locales";
+
+export default class Locale extends Base {
   internet: InternetLocale;
+
   finance: FinanceLocale;
+
   location: LocationLocale;
+
   person: PersonLocale;
+
   phone: PhoneLocale;
+
   vehicle: VehicleLocale;
 
   constructor(data: LocaleData) {

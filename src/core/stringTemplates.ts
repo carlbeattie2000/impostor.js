@@ -1,8 +1,6 @@
-import { randomInt } from "crypto";
+import { randomInt } from "node:crypto";
 
 class StringTemplatesReplacementFunctions {
-  constructor() {}
-
   randomInt({ min = 0, max = 1 } = {}): number {
     return randomInt(min, max);
   }
@@ -18,23 +16,30 @@ class StringTemplatesReplacementFunctions {
   randomIntWithPadding({ min = 0, max = 1 } = {}): string {
     const rndInt = this.randomInt({ min, max });
 
-    return rndInt < 10 ? "0" + rndInt.toString() : rndInt.toString();
+    return rndInt < 10 ? `0${rndInt.toString()}` : rndInt.toString();
   }
 }
 
 const stringTemplateFunctions = new StringTemplatesReplacementFunctions();
 const dateNow = new Date();
 
-export const templateFunctions = {
-  "#": () => stringTemplateFunctions.randomInt({ min: 1, max: 10 }),
-  "?": () => stringTemplateFunctions.randomCharacter({ uppercase: true }),
-  "~": () => stringTemplateFunctions.randomCharacter(),
-  DD: () => stringTemplateFunctions.randomIntWithPadding({ min: 1, max: 31 }),
-  MM: () => stringTemplateFunctions.randomIntWithPadding({ min: 1, max: 12 }),
-  YY: () => stringTemplateFunctions.randomIntWithPadding({ max: 24 }),
-  YYYY: () =>
+export type TemplateFunctions = Record<string, () => string | number>;
+
+const templateFunctions: TemplateFunctions = {
+  "#": (): number => stringTemplateFunctions.randomInt({ min: 1, max: 10 }),
+  "?": (): string =>
+    stringTemplateFunctions.randomCharacter({ uppercase: true }),
+  "~": (): string => stringTemplateFunctions.randomCharacter(),
+  DD: (): string =>
+    stringTemplateFunctions.randomIntWithPadding({ min: 1, max: 31 }),
+  MM: (): string =>
+    stringTemplateFunctions.randomIntWithPadding({ min: 1, max: 12 }),
+  YY: (): string => stringTemplateFunctions.randomIntWithPadding({ max: 24 }),
+  YYYY: (): string =>
     stringTemplateFunctions.randomIntWithPadding({
       min: 1901,
       max: dateNow.getFullYear(),
     }),
 };
+
+export default templateFunctions;

@@ -1,13 +1,11 @@
+import Locale from "./locale";
 import Base from "../core/base";
-import { LocaleData } from "../types/locales";
-import { Locale } from "./locale";
-
 import enGBData from "../data/locales/en_GB.json";
 
+import type { LocaleData } from "../types/locales";
+
 class Locales extends Base {
-  loadedLocales: {
-    [name: string]: Locale;
-  };
+  loadedLocales: Record<string, Locale>;
 
   constructor() {
     super();
@@ -20,10 +18,7 @@ class Locales extends Base {
   }
 
   get(name: string) {
-    const localeExists = Object.prototype.hasOwnProperty.call(
-      this.loadedLocales,
-      name,
-    );
+    const localeExists = Object.hasOwn(this.loadedLocales, name);
 
     if (!localeExists) {
       throw new Error(`Locale ${name} does not exist!`);

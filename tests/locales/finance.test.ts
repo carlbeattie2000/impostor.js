@@ -1,7 +1,9 @@
-import { assertType, expectTypeOf, expect, test } from "vitest";
-import { FinanceLocale } from "../../src/locales/finance";
+import { assertType, expect, expectTypeOf, test } from "vitest";
+
 import enGBData from "../../src/data/locales/en_GB.json";
-import { TransactionObject } from "../../src/types/locales";
+import FinanceLocale from "../../src/locales/finance";
+
+import type { TransactionObject } from "../../src/types/locales";
 
 const testFinance = new FinanceLocale(enGBData.finance);
 

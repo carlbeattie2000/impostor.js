@@ -1,12 +1,7 @@
 import Base from "../core/base";
-
 import scienceData from "../data/science.json";
 
-export class ScienceModule extends Base {
-  constructor() {
-    super();
-  }
-
+export default class ScienceModule extends Base {
   asteroid(): string {
     return this.randomArrayElement<string>(scienceData.asteroids);
   }

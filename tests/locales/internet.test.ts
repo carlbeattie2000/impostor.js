@@ -1,6 +1,7 @@
-import { assertType, expectTypeOf, expect, test } from "vitest";
-import { InternetLocale } from "../../src/locales/internet";
+import { assertType, expect, expectTypeOf, test } from "vitest";
+
 import enGBData from "../../src/data/locales/en_GB.json";
+import InternetLocale from "../../src/locales/internet";
 
 const testInternet = new InternetLocale(enGBData.internet);
 
@@ -29,7 +30,7 @@ test("Should generate a random URL", () => {
   const url = testInternet.url();
 
   expectTypeOf(url).toBeString();
-  expect(url).toMatch(/^(https?|ftp):\/\/[^\s\/$.?#].[^\s]*$/gm);
+  expect(url).toMatch(/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/gm);
 });
 
 test("Should generate a random userAgent", () => {

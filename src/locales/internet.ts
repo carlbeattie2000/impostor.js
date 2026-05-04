@@ -1,10 +1,12 @@
 import Base from "../core/base";
 import { UserAgent } from "../core/userAgents";
-import { Internet } from "../types/locales";
 import internetGlobalData from "../data/internet.json";
 
-export class InternetLocale extends Base {
+import type { Internet } from "../types/locales";
+
+export default class InternetLocale extends Base {
   internetData: Internet;
+
   userAgentMethod: UserAgent;
 
   constructor(internetData: Internet) {
@@ -29,11 +31,9 @@ export class InternetLocale extends Base {
   }
 
   domain(): string {
-    return (
-      this.randomArrayElement<string>(this.internetData.domainNames) +
-      "." +
-      this.randomArrayElement<string>(this.internetData.domains)
-    );
+    return `${this.randomArrayElement<string>(
+      this.internetData.domainNames,
+    )}.${this.randomArrayElement<string>(this.internetData.domains)}`;
   }
 
   url(): string {
