@@ -3,6 +3,7 @@
   "version": "2.2.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
+  "type": "module",
   "types": "index.d.ts",
   "typesVersions": {
     ">=4.0": {
@@ -45,10 +46,15 @@
     "json"
   ],
   "devDependencies": {
+    "@eslint/compat": "^2.0.5",
+    "@eslint/js": "^9",
     "@types/node": "^20.10.6",
     "csv-parse": "^5.0.4",
     "esbuild": "^0.19.11",
-    "eslint": "^8.6.0",
+    "eslint": "^9.39.4",
+    "eslint-config-airbnb-extended": "^3.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "glob": "^10.3.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.1",
