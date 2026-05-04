@@ -20,12 +20,12 @@ pnpm add impostor_js
 
 Basic usage
 
-```javascript
-const { Impostor } = require("impostor_js");
+```typescript
+import Impostor from 'impostor_js'
 
 // create a new instance
 
-const impostor_gen = new impostor("en_GB");
+const impostor_gen = new Impostor("en_GB");
 // providing a country code allows you to use country specific data. (phone numbers, cities, vehicle plates)
 
 impostor_gen.location.city();
