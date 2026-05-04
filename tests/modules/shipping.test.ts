@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import ShippingModule from "../../src/modules/shipping";
+import ShippingModule from "../../src/modules/shipping/shipping";
 
 const testShipping = new ShippingModule();
 

@@ -1,4 +1,4 @@
-import ISO6346 from "../ISO6346";
+import ISO6346 from "./ISO6346";
 import { Base } from "../../core/base";
 
 export default class ShippingModule extends Base {
