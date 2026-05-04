@@ -18,9 +18,7 @@ class Locales extends Base {
   }
 
   get(name: string) {
-    const localeExists = Object.hasOwn(this.loadedLocales, name);
-
-    if (!localeExists) {
+    if (!(name in this.loadedLocales)) {
       throw new Error(`Locale ${name} does not exist!`);
     }
 
