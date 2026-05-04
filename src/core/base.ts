@@ -1,4 +1,5 @@
-import { randomBytes, randomInt } from "crypto";
+import { randomBytes, randomInt } from "node:crypto";
+
 import { templateFunctions } from "./stringTemplates";
 
 export class Base {
@@ -62,14 +63,11 @@ export class Base {
   }
 
   randomHexValue(size: number): string {
-    return (
-      "0x" +
-      new Array(size)
-        .fill("")
-        .map((_) => Math.floor(randomInt(16)).toString())
-        .join("")
-        .toUpperCase()
-    );
+    return `0x${new Array(size)
+      .fill("")
+      .map((_) => Math.floor(randomInt(16)).toString())
+      .join("")
+      .toUpperCase()}`;
   }
 
   randomInt({
@@ -88,7 +86,7 @@ export class Base {
       randomBytes(byteSize),
       Buffer.from(seed.toString()),
     ]);
-    const randomValue = BigInt("0x" + randomBytesCreated.toString("hex"));
+    const randomValue = BigInt(`0x${randomBytesCreated.toString("hex")}`);
 
     const value = Number(BigInt(min) + (randomValue % BigInt(range)));
 
@@ -147,16 +145,16 @@ export class Base {
     ).toLocaleString();
   }
 
-  randomArrayElement<T>(array: T[]): T {
+  randomArrayElement<T>(array: readonly T[]): T {
     if (!array || !Array.isArray(array) || array.length === 0) {
       throw new Error("Invalid or empty array!");
     }
 
     if (array.length === 1) {
-      return array[0];
+      return array[0] as T;
     }
 
-    return array[this.randomInt({ max: array.length })];
+    return array[this.randomInt({ max: array.length })] as T;
   }
 
   randomBytes(size: number): Buffer {
@@ -190,7 +188,7 @@ export class Base {
    */
   randomStringFormatter(template: string) {
     return template.replace(/(#|\?|~|DD|MM|(YYYY|YY))/g, (char) => {
-      if (Object.prototype.hasOwnProperty.call(templateFunctions, char)) {
+      if (Object.hasOwn(templateFunctions, char)) {
         const key = char as keyof typeof templateFunctions;
         return templateFunctions[key]().toString();
       }

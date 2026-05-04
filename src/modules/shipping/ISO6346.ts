@@ -29,6 +29,27 @@ const charNumericValueMapping: Record<string, number> = {
   Z: 38,
 };
 
+interface ISOSizeType {
+  code: string;
+  length: number;
+  type: string;
+}
+
+const ISO_SIZE_TYPES = Object.freeze([
+  { code: "22G1", length: 20, type: "General Purpose" },
+  { code: "22G0", length: 20, type: "General Purpose" },
+  { code: "22U1", length: 20, type: "Open Top" },
+  { code: "22T1", length: 20, type: "Tank" },
+  { code: "22R1", length: 20, type: "Reefer" },
+
+  { code: "42G1", length: 40, type: "General Purpose" },
+  { code: "45G1", length: 40, type: "High Cube" },
+  { code: "42R1", length: 40, type: "Reefer" },
+  { code: "45R1", length: 40, type: "High Cube Reefer" },
+  { code: "42U1", length: 40, type: "Open Top" },
+  { code: "42P1", length: 40, type: "Flat Rack" },
+]) as readonly ISOSizeType[];
+
 export default class ISO6346 extends Base {
   public ownerCode(): string {
     return this.randomString(3).toUpperCase();
@@ -87,5 +108,9 @@ export default class ISO6346 extends Base {
     const checkDigit = this.checkDigit(ownerCode, category, serial);
 
     return `${ownerCode}${category}${serial}${checkDigit}`;
+  }
+
+  public isoSizeType(): ISOSizeType {
+    return this.randomArrayElement(ISO_SIZE_TYPES);
   }
 }
