@@ -1,6 +1,6 @@
 {
   "name": "impostor_js",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "main": "dist/index.js",
   "type": "module",
   "types": "./dist/index.d.ts",
