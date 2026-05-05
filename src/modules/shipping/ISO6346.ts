@@ -116,4 +116,28 @@ export default class ISO6346 extends Base {
   public isoSizeType(): ISOSizeType {
     return this.randomArrayElement(ISO_SIZE_TYPES);
   }
+
+  public isoSizeTypeStandard(size: 20 | 40): ISOSizeType {
+    if (size === 20) {
+      return this.randomArrayElement([
+        { code: "22G1", length: 20, type: "General Purpose" },
+        { code: "22G0", length: 20, type: "General Purpose" },
+      ]);
+    }
+    return this.randomArrayElement([
+      { code: "42G1", length: 40, type: "General Purpose" },
+      { code: "45G1", length: 40, type: "High Cube" },
+    ]);
+  }
+
+  public isoSizeTypeReefer(size: 20 | 40): ISOSizeType {
+    if (size === 20) {
+      return { code: "22R1", length: 20, type: "Reefer" };
+    }
+
+    return this.randomArrayElement([
+      { code: "42R1", length: 40, type: "Reefer" },
+      { code: "45R1", length: 40, type: "High Cube Reefer" },
+    ]);
+  }
 }
