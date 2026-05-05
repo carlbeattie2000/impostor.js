@@ -1,9 +1,9 @@
-import { assertType, expect, expectTypeOf, test } from "vitest";
+import { expect, expectTypeOf, test } from "vitest";
 
-import enGBData from "../../src/data/locales/en_GB.json";
-import FinanceLocale from "../../src/locales/finance";
+import enGBData from "../../src/data/locales/en_GB.js";
+import FinanceLocale from "../../src/locales/finance.js";
 
-import type { TransactionObject } from "../../src/types/locales";
+import type { TransactionObject } from "../../src/types/locales.js";
 
 const testFinance = new FinanceLocale(enGBData.finance);
 
@@ -99,7 +99,6 @@ test("generate random list of transaction objects", () => {
 
   expectTypeOf(transactionObjects).toMatchTypeOf<TransactionObject[]>();
   expect(transactionObjects.length).toBeGreaterThan(0);
-  expectTypeOf(transactionObjects[0]).toMatchTypeOf<TransactionObject>();
   expect(transactionObjects[0]).toHaveProperty("date");
 });
 
@@ -108,6 +107,5 @@ test("generate random list of transaction string", () => {
 
   expectTypeOf(transactionStrings).toMatchTypeOf<string[]>();
   expect(transactionStrings.length).toBeGreaterThan(0);
-  expectTypeOf(transactionStrings[0]).toBeString();
-  expect(transactionStrings[0].length).toBeGreaterThan(0);
+  expect(transactionStrings[0]?.length).toBeGreaterThan(0);
 });

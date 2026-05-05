@@ -1,11 +1,11 @@
-import Base from "../core/base";
-import timezoneData from "../data/timezones.json";
+import Base from "../core/base.js";
+import data from "../data/timezones.js";
 
-import type { localeCodes } from "../types/locales";
+import type { localeCodes } from "../types/locales.js";
 
 export default class TimezoneModule extends Base {
   timezone(): string {
-    return this.randomArrayElement<string>(timezoneData.timezones);
+    return this.randomArrayElement<string>(data.timezones);
   }
 
   dateTime(timezone = "", locale: localeCodes = "en_GB"): string {

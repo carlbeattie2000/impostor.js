@@ -1,19 +1,19 @@
-import Base from "./core/base";
-import locales from "./locales";
-import ColorModule from "./modules/colors";
-import CryptoModule from "./modules/crypto";
-import ScienceModule from "./modules/science";
-import ShippingModule from "./modules/shipping/shipping";
-import TimezoneModule from "./modules/timezones";
+import Base from "./core/base.js";
+import locales from "./locales/index.js";
+import ColorModule from "./modules/colors.js";
+import CryptoModule from "./modules/crypto.js";
+import ScienceModule from "./modules/science.js";
+import ShippingModule from "./modules/shipping/shipping.js";
+import TimezoneModule from "./modules/timezones.js";
 
-import type FinanceLocale from "./locales/finance";
-import type InternetLocale from "./locales/internet";
-import type Locale from "./locales/locale";
-import type LocationLocale from "./locales/location";
-import type PersonLocale from "./locales/person";
-import type PhoneLocale from "./locales/phone";
-import type VehicleLocale from "./locales/vehicle";
-import type { localeCodes } from "./types/locales";
+import type FinanceLocale from "./locales/finance.js";
+import type InternetLocale from "./locales/internet.js";
+import type Locale from "./locales/locale.js";
+import type LocationLocale from "./locales/location.js";
+import type PersonLocale from "./locales/person.js";
+import type PhoneLocale from "./locales/phone.js";
+import type VehicleLocale from "./locales/vehicle.js";
+import type { localeCodes } from "./types/locales.js";
 
 export default class Impostor extends Base {
   private locale: Locale;
@@ -42,7 +42,14 @@ export default class Impostor extends Base {
 
   constructor(countryCode: localeCodes = "en_GB") {
     super();
-    this.locale = locales.get(countryCode);
+
+    const locale = locales.get(countryCode);
+    if (!locale) {
+      throw new Error("Locale Error");
+    }
+
+    this.locale = locale;
+    this.locale = locale;
     this.internet = this.locale.internet;
     this.finance = this.locale.finance;
     this.location = this.locale.location;
@@ -59,7 +66,11 @@ export default class Impostor extends Base {
   }
 
   setLocale(countryCode: localeCodes): void {
-    this.locale = locales.get(countryCode);
+    const locale = locales.get(countryCode);
+    if (!locale) {
+      throw new Error("Locale Error");
+    }
+    this.locale = locale;
 
     this.internet = this.locale.internet;
     this.finance = this.locale.finance;

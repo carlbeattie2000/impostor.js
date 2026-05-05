@@ -1,12 +1,12 @@
-import FinanceLocale from "./finance";
-import InternetLocale from "./internet";
-import LocationLocale from "./location";
-import PersonLocale from "./person";
-import PhoneLocale from "./phone";
-import VehicleLocale from "./vehicle";
-import Base from "../core/base";
+import FinanceLocale from "./finance.js";
+import InternetLocale from "./internet.js";
+import LocationLocale from "./location.js";
+import PersonLocale from "./person.js";
+import PhoneLocale from "./phone.js";
+import VehicleLocale from "./vehicle.js";
+import Base from "../core/base.js";
 
-import type { LocaleData } from "../types/locales";
+import type { LocaleData } from "../types/locales.js";
 
 export default class Locale extends Base {
   internet: InternetLocale;

@@ -1,5 +1,5 @@
-{
-  "timezones": [
+const data = {
+  timezones: [
     "Europe/Andorra",
     "Asia/Dubai",
     "Asia/Kabul",
@@ -347,6 +347,8 @@
     "Pacific/Efate",
     "Pacific/Wallis",
     "Pacific/Apia",
-    "Africa/Johannesburg"
-  ]
-}
+    "Africa/Johannesburg",
+  ],
+};
+
+export default data;

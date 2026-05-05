@@ -1,10 +1,10 @@
-import Base from "../core/base";
+import Base from "../core/base.js";
 
 import type {
   CardTemplate,
   Finance,
   TransactionObject,
-} from "../types/locales";
+} from "../types/locales.js";
 
 export default class FinanceLocale extends Base {
   financeData: Finance;

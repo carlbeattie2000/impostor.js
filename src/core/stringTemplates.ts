@@ -10,7 +10,11 @@ class StringTemplatesReplacementFunctions {
 
     const char = charList[this.randomInt({ max: charList.length })];
 
-    return uppercase ? char.toUpperCase() : char;
+    if (char) {
+      return uppercase ? char.toUpperCase() : char;
+    }
+
+    return "";
   }
 
   randomIntWithPadding({ min = 0, max = 1 } = {}): string {

@@ -1,8 +1,8 @@
-import Locale from "./locale";
-import Base from "../core/base";
-import enGBData from "../data/locales/en_GB.json";
+import Locale from "./locale.js";
+import Base from "../core/base.js";
+import data from "../data/locales/en_GB.js";
 
-import type { LocaleData } from "../types/locales";
+import type { LocaleData } from "../types/locales.js";
 
 class Locales extends Base {
   loadedLocales: Record<string, Locale>;
@@ -28,6 +28,6 @@ class Locales extends Base {
 
 const locales = new Locales();
 
-locales.addLocale("en_GB", enGBData);
+locales.addLocale("en_GB", data);
 
 export default locales;

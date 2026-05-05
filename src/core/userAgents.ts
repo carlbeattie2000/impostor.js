@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import { versions } from "process";
-import Base from "./base";
+import Base from "./base.js";
+import VersionString from "./userAgents/versionString.js";
 
 // Copyright (c) 2012-2014 Jeffrey Mealo
 
@@ -32,69 +32,13 @@ import Base from "./base";
 // Modified by Carl Beattie, quickly fixed up for typescript, this version does not follow the weighted random functionality
 
 export class UserAgent extends Base {
-  private version_string: { [key: string]: (v?: string) => unknown };
+  private version_string: VersionString;
   private browser: { [key: string]: (v?: string) => string };
 
   constructor() {
     super();
 
-    this.version_string = {
-      net: () => {
-        return [
-          this.randomInt({ min: 1, max: 4 }),
-          this.randomInt({ max: 9 }),
-          this.randomInt({ min: 10000, max: 99999 }),
-          this.randomInt({ max: 9 }),
-        ].join(".");
-      },
-      nt: () => {
-        return (
-          this.randomInt({ min: 5, max: 6 }).toString() +
-          "." +
-          this.randomInt({ max: 3 }).toString()
-        );
-      },
-      ie: () => {
-        return this.randomInt({ min: 7, max: 11 });
-      },
-      trident: () => {
-        return (
-          this.randomInt({ min: 3, max: 7 }).toString() +
-          "." +
-          this.randomInt({ max: 1 })
-        );
-      },
-      osx: (delim: string | undefined) => {
-        return [
-          10,
-          this.randomInt({ min: 5, max: 10 }),
-          this.randomInt({ max: 9 }),
-        ].join(delim || ".");
-      },
-      chrome: () => {
-        return [
-          this.randomInt({ min: 13, max: 39 }),
-          0,
-          this.randomInt({ min: 800, max: 899 }),
-          0,
-        ].join(".");
-      },
-      presto: () => {
-        return "2.9." + this.randomInt({ min: 160, max: 190 }).toString();
-      },
-      presto2: () => {
-        return this.randomInt({ min: 10, max: 12 }).toString() + ".00";
-      },
-      safari: () => {
-        return (
-          this.randomInt({ min: 531, max: 538 }).toString() +
-          "." +
-          this.randomInt({ max: 2 }).toString() +
-          "." +
-          this.randomInt({ max: 2 })
-        );
-      },
-    };
+    this.version_string = new VersionString();
 
     this.browser = {
       firefox: (arch: string | undefined) => {
@@ -385,9 +329,20 @@ export class UserAgent extends Base {
       .join("");
   }
 
-  generate(): string {
+  public generate(): string {
     const browserAndOS = this.randomBrowserAndOS();
 
-    return this.browser[browserAndOS[0]](browserAndOS[1]);
+    const browser = browserAndOS[0] 
+    const os = browserAndOS[1]
+
+    if (browser && os) {
+      const func = this.browser[browser];
+      if (func) {
+        return func(os);
+      }
+      return ''
+    }
+
+    return ''
   }
 }

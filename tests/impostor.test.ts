@@ -1,12 +1,12 @@
-import { assertType, expect, expectTypeOf, test } from "vitest";
+import { expect, expectTypeOf, test } from "vitest";
 
-import Impostor from "../src";
+import Impostor from "../src/index.js";
 
-import type ColorModule from "../src/modules/colors";
-import type CryptoModule from "../src/modules/crypto";
-import type ScienceModule from "../src/modules/science";
-import type ShippingModule from "../src/modules/shipping/shipping";
-import type TimezoneModule from "../src/modules/timezones";
+import type ColorModule from "../src/modules/colors.js";
+import type CryptoModule from "../src/modules/crypto.js";
+import type ScienceModule from "../src/modules/science.js";
+import type ShippingModule from "../src/modules/shipping/shipping.js";
+import type TimezoneModule from "../src/modules/timezones.js";
 
 const enGBLocale = new Impostor("en_GB");
 

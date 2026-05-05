@@ -1,24 +1,14 @@
 {
   "name": "impostor_js",
   "version": "3.0.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.mjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
-  "types": "index.d.ts",
-  "typesVersions": {
-    ">=4.0": {
-      "*": [
-        "dist/types/*"
-      ]
-    }
-  },
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.mjs"
-    },
-    "./package.json": "./package.json"
+      "import": "dist/index.js",
+      "types": "dist/index.d.ts"
+    }
   },
   "files": [
     "dist"
@@ -32,9 +22,8 @@
   "scripts": {
     "clean": "rimraf dist node_modules",
     "build:clean": "rimraf dist",
-    "build:types": "tsc --project tsconfig.build.json",
-    "build:code": "tsx ./scripts/bundle.ts",
-    "build": "run-s build:clean build:types build:code",
+    "build:main": "tsc --project tsconfig.build.json",
+    "build": "run-s build:clean build:main",
     "test": "vitest",
     "format": "prettier --cache --write .",
     "release": "standard-version"

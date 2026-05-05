@@ -1,5 +1,5 @@
-import Base from "../core/base";
-import cryptoData from "../data/crypto.json";
+import Base from "../core/base.js";
+import data from "../data/crypto.js";
 
 export default class CryptoModule extends Base {
   ethereumAddress(): string {
@@ -22,10 +22,10 @@ export default class CryptoModule extends Base {
   }
 
   coin(): string {
-    return this.randomArrayElement<string>(cryptoData.coins);
+    return this.randomArrayElement<string>(data.coins);
   }
 
   coinPrefix(): string {
-    return this.randomArrayElement<string>(cryptoData.coinPrefixes);
+    return this.randomArrayElement<string>(data.coinPrefixes);
   }
 }

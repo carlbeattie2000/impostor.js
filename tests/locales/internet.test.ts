@@ -1,7 +1,7 @@
-import { assertType, expect, expectTypeOf, test } from "vitest";
+import { expect, expectTypeOf, test } from "vitest";
 
-import enGBData from "../../src/data/locales/en_GB.json";
-import InternetLocale from "../../src/locales/internet";
+import enGBData from "../../src/data/locales/en_GB.js";
+import InternetLocale from "../../src/locales/internet.js";
 
 const testInternet = new InternetLocale(enGBData.internet);
 

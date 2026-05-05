@@ -1,6 +1,6 @@
-import Base from "../core/base";
+import Base from "../core/base.js";
 
-import type { Person } from "../types/locales";
+import type { Person } from "../types/locales.js";
 
 export default class PersonLocale extends Base {
   personData: Person;

@@ -1,6 +1,6 @@
-import Base from "../core/base";
+import Base from "../core/base.js";
 
-import type { Vehicle } from "../types/locales";
+import type { Vehicle } from "../types/locales.js";
 
 export default class VehicleLocale extends Base {
   vehicleData: Vehicle;

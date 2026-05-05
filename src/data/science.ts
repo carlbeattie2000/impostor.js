@@ -1,5 +1,5 @@
-{
-  "asteroids": [
+const data = {
+  asteroids: [
     "Aaltje",
     "Aarhus",
     "Aaronson",
@@ -3458,9 +3458,9 @@
     "Zverev",
     "Zwetana",
     "Zwicky",
-    "Zyskin"
+    "Zyskin",
   ],
-  "biological_terms": [
+  biological_terms: [
     "Anencephalic",
     "Anklyosaur",
     "Blastula",
@@ -3519,9 +3519,9 @@
     "Stomata",
     "Triceratops",
     "Tyrannosaurus",
-    "Xylem"
+    "Xylem",
   ],
-  "planets": [
+  planets: [
     "Mercury",
     "Venus",
     "Earth",
@@ -3535,9 +3535,9 @@
     "HD 209458b",
     "HIP 13044b",
     "Kepler-186f",
-    "Kepler-452b"
+    "Kepler-452b",
   ],
-  "chemical_elements": [
+  chemical_elements: [
     "Actinium",
     "Aluminum",
     "Americium",
@@ -3651,6 +3651,8 @@
     "Ytterbium",
     "Yttrium",
     "Zinc",
-    "Zirconium"
-  ]
-}
+    "Zirconium",
+  ],
+};
+
+export default data;

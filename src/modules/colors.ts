@@ -1,4 +1,4 @@
-import Base from "../core/base";
+import Base from "../core/base.js";
 
 export default class ColorModule extends Base {
   rgb(): number[] {

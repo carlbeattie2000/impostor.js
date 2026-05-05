@@ -1,6 +1,6 @@
-import Baplie from "./baplie";
-import ISO6346 from "./ISO6346";
-import Base from "../../core/base";
+import Baplie from "./baplie.js";
+import ISO6346 from "./ISO6346.js";
+import Base from "../../core/base.js";
 
 export default class ShippingModule extends Base {
   public container: ISO6346;

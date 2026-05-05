@@ -1,6 +1,6 @@
-import Base from "../core/base";
+import Base from "../core/base.js";
 
-import type { Phone } from "../types/locales";
+import type { Phone } from "../types/locales.js";
 
 export default class PhoneLocale extends Base {
   phoneData: Phone;

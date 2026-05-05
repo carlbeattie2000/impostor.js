@@ -1,6 +1,6 @@
-{
-  "finance": {
-    "banks": [
+const data = {
+  finance: {
+    banks: [
       "Ulster Bank",
       "Bank of Ireland",
       "NatWest",
@@ -16,7 +16,7 @@
       "Barclays Bank",
       "TSB Bank",
       "Halifax",
-      "Sainsbury\"s Bank",
+      'Sainsbury"s Bank',
       "Co-operative Bank",
       "FCE Bank",
       "Bank of Scotland",
@@ -24,31 +24,31 @@
       "Santander",
       "Virgin Money",
       "Clydesdale Bank",
-      "Bank of England"
+      "Bank of England",
     ],
-    "cardTemplates": [
+    cardTemplates: [
       {
-        "name": "VISA",
-        "cardNumberTemplates": ["4###############"],
-        "cvvTemplate": "###",
-        "sortNumberTemplate": "######",
-        "accountNumberTemplate": "########"
+        name: "VISA",
+        cardNumberTemplates: ["4###############"],
+        cvvTemplate: "###",
+        sortNumberTemplate: "######",
+        accountNumberTemplate: "########",
       },
       {
-        "name": "Mastercard",
-        "cardNumberTemplates": ["2###############", "5###############"],
-        "cvvTemplate": "###",
-        "sortNumberTemplate": "######",
-        "accountNumberTemplate": "########"
-      }
+        name: "Mastercard",
+        cardNumberTemplates: ["2###############", "5###############"],
+        cvvTemplate: "###",
+        sortNumberTemplate: "######",
+        accountNumberTemplate: "########",
+      },
     ],
-    "currency": {
-      "name": "Pound Sterling",
-      "shorthand": "GBP",
-      "symbol": "£",
-      "countryCode": "en-GB"
+    currency: {
+      name: "Pound Sterling",
+      shorthand: "GBP",
+      symbol: "£",
+      countryCode: "en-GB",
     },
-    "transactionDescriptions": [
+    transactionDescriptions: [
       "Adrian Flux Insurance",
       "All About Prizes",
       "allpay",
@@ -81,7 +81,7 @@
       "Kingfisher (Screwfix)",
       "Knowhow",
       "LBK (Ladbrokes)",
-      "Let\"s go rewards",
+      'Let"s go rewards',
       "Littlewoods",
       "Live Career",
       "MANGOMONEY.CO.UK",
@@ -116,11 +116,11 @@
       "Ticketmaster",
       "UK Credit",
       "XPLORE*DISCOUNT-GOLD ",
-      "YOUR SOCIAL INS"
-    ]
+      "YOUR SOCIAL INS",
+    ],
   },
-  "internet": {
-    "domainNames": [
+  internet: {
+    domainNames: [
       "full-page",
       "integrated",
       "centrist",
@@ -249,9 +249,9 @@
       "tantrum",
       "adversity",
       "nag",
-      "freighter"
+      "freighter",
     ],
-    "domains": [
+    domains: [
       "biz",
       "com",
       "nhs.uk",
@@ -270,9 +270,9 @@
       "sch.uk",
       "scot",
       "uk",
-      "wales"
+      "wales",
     ],
-    "isps": [
+    isps: [
       "BT",
       "Virgin Media",
       "Sky",
@@ -289,11 +289,11 @@
       "Onestream",
       "Shell Energy",
       "Direct Save Telecom",
-      "Now TV"
-    ]
+      "Now TV",
+    ],
   },
-  "location": {
-    "cities": [
+  location: {
+    cities: [
       "Bath",
       "Birmingham",
       "Bradford",
@@ -369,9 +369,9 @@
       "St Asaph",
       "St Davids",
       "Swansea",
-      "Wrexham"
+      "Wrexham",
     ],
-    "counties": [
+    counties: [
       "Bedfordshire",
       "Berkshire",
       "Bristol",
@@ -530,10 +530,10 @@
       "Guernsey",
       "Jersey",
       "Sark",
-      "The Isle of Man"
+      "The Isle of Man",
     ],
-    "countries": ["England", "Wales", "Ireland", "Scotland"],
-    "districts": [
+    countries: ["England", "Wales", "Ireland", "Scotland"],
+    districts: [
       "Birmingham",
       "Leeds",
       "Sheffield",
@@ -664,7 +664,7 @@
       "Braintree",
       "Oxford",
       "Windsor and Maidenhead",
-      "King\"s Lynn and West Norfolk",
+      'King"s Lynn and West Norfolk',
       "Mid Sussex",
       "South Tyneside",
       "Knowsley",
@@ -840,9 +840,9 @@
       "Melton",
       "Rutland",
       "City of London",
-      "Isles of Scilly"
+      "Isles of Scilly",
     ],
-    "postcodes": [
+    postcodes: [
       "AB",
       "AL",
       "B",
@@ -963,9 +963,9 @@
       "WS",
       "WV",
       "YO",
-      "ZE"
+      "ZE",
     ],
-    "streets": [
+    streets: [
       "Cooper Road",
       "Courtney Place",
       "Wharton Road",
@@ -996,7 +996,7 @@
       "Valan Leas",
       "Broadway Avenue",
       "Court Drive",
-      "Galpin\"s Road",
+      'Galpin"s Road',
       "Romanhurst Avenue",
       "Cudham Road",
       "Leighton Street",
@@ -1028,7 +1028,7 @@
       "Rosemere Place",
       "Walters Yard",
       "Langdon Road",
-      "Canon\"s Walk",
+      'Canon"s Walk',
       "Palace View",
       "Cotford Road",
       "Oakwood Avenue",
@@ -1059,7 +1059,7 @@
       "Murray Avenue",
       "Clarendon Road",
       "Birch Tree Way",
-      "May\"s Hill Road",
+      'May"s Hill Road',
       "The Chase",
       "Kaine Place",
       "Brigstock Road",
@@ -1118,12 +1118,12 @@
       "Larch Tree Way",
       "Frederick Gardens",
       "London Road",
-      "Fuller\"s Wood",
+      'Fuller"s Wood',
       "Gonville Road",
       "Kent Close",
       "Darley Close",
       "Handcroft Road",
-      "Martin\"s Road",
+      'Martin"s Road',
       "Hammelton Road",
       "Ford Close",
       "Conway Gardens",
@@ -1155,7 +1155,7 @@
       "Great Gatton Close",
       "Carrington Close",
       "Burdett Road",
-      "Keen\"s Road",
+      'Keen"s Road',
       "Devonshire Way",
       "Deepdene Avenue",
       "Dittoncroft Close",
@@ -1173,7 +1173,7 @@
       "Harry Close",
       "Ainsworth Road",
       "Chatsworth Road",
-      "Jackson\"s Way",
+      'Jackson"s Way',
       "Harcourt Road",
       "Foss Avenue",
       "Birdhurst Avenue",
@@ -1186,12 +1186,12 @@
       "Fellmongers Yard",
       "Bennetts Avenue",
       "Elstree Hill",
-      "St Mary\"s Avenue",
+      'St Mary"s Avenue',
       "Headcorn Place",
       "Fleetwood Close",
       "Greenway Gardens",
       "Streamside Close",
-      "Queen\"s Mead Road",
+      'Queen"s Mead Road',
       "Claremont Road",
       "Plymouth Road",
       "Beaconsfield Road",
@@ -1199,7 +1199,7 @@
       "Elder Place",
       "Dunheved Road West",
       "Coleridge Road",
-      "Lambert\"s Place",
+      'Lambert"s Place',
       "Craven Road",
       "Commerce Way",
       "Ecclesbourne Road",
@@ -1282,25 +1282,25 @@
       "Gladeside",
       "Blyth Road",
       "Davenant Road",
-      "Scott\"s Lane",
+      'Scott"s Lane',
       "Elm Road",
       "Horton Way",
       "Arundel Road",
       "Plaistow Grove",
       "Kelling Gardens",
-      "Ringer\"s Road",
+      'Ringer"s Road',
       "Chepstow Rise",
       "Gorse Road",
       "Fieldpark Gardens",
       "Bedford Park",
       "Dacre Road",
       "Broomwood Close",
-      "Addison\"s Close",
+      'Addison"s Close',
       "Crowley Crescent",
       "Elmwood Road",
       "Edridge Road",
       "Cabot Close",
-      "St Paul\"s Square",
+      'St Paul"s Square',
       "Huntingdon Close",
       "Weston Grove",
       "Chaucer Green",
@@ -1343,7 +1343,7 @@
       "West Hill",
       "North End Lane",
       "Latimer Road",
-      "D\"arcy Place",
+      'D"arcy Place',
       "Cliffe Road",
       "Kingcup Close",
       "Ash Tree Close",
@@ -1424,17 +1424,17 @@
       "Tavistock Road",
       "Hurst Road",
       "Den Close",
-      "St Timothy\"s Mews",
+      'St Timothy"s Mews',
       "Alpine Close",
       "Grove Road",
       "Laurel Crescent",
-      "Simpson\"s Road",
+      'Simpson"s Road',
       "Beckenham Grove",
       "Farthing Street",
       "Chepstow Road",
       "Furtherfield Close",
       "Green Hill",
-      "Friends\" Road",
+      'Friends" Road',
       "Eldon Avenue",
       "Drayton Road",
       "Weston Road",
@@ -1449,7 +1449,7 @@
       "George Street",
       "Kynaston Avenue",
       "Standard Road",
-      "Queen\"s Road",
+      'Queen"s Road',
       "Dunheved Road North",
       "Gwydyr Road",
       "Greenwood Road",
@@ -1466,7 +1466,7 @@
       "Camrose Close",
       "North Street",
       "The Glen",
-      "Harrison\"s Rise",
+      'Harrison"s Rise',
       "Forde Avenue",
       "Scotts Avenue",
       "Park Hill Road",
@@ -1482,7 +1482,7 @@
       "King Gardens",
       "Delmey Close",
       "Coldharbour Way",
-      "Latham\"s Way",
+      'Latham"s Way',
       "Carisbrooke Road",
       "Bevan Court",
       "Green Acres",
@@ -1536,7 +1536,7 @@
       "Cheshire Close",
       "Fern Avenue",
       "Kingscote Road",
-      "Bishop\"s Road",
+      'Bishop"s Road',
       "Grafton Road",
       "Fairford Avenue",
       "Erica Gardens",
@@ -1579,7 +1579,7 @@
       "Newbury Road",
       "Duppas Hill Road",
       "Ham View",
-      "St Mark\"s Road",
+      'St Mark"s Road',
       "Kingsley Road",
       "Ardingly Close",
       "Barrow Road",
@@ -1608,7 +1608,7 @@
       "Earlswood Avenue",
       "Aldersmead Avenue",
       "Hogarth Crescent",
-      "Baron\"s Walk",
+      'Baron"s Walk',
       "Francis Road",
       "Romanhurst Gardens",
       "Gardeners Road",
@@ -1677,11 +1677,11 @@
       "Fir Tree Gardens",
       "Annesley Drive",
       "Jasmine Gardens",
-      "Duppas Road"
-    ]
+      "Duppas Road",
+    ],
   },
-  "person": {
-    "emailExtensions": [
+  person: {
+    emailExtensions: [
       "gmail.com",
       "live.co.uk",
       "hotmail.com",
@@ -1726,9 +1726,9 @@
       "mac.com",
       "live.ca",
       "aim.com",
-      "bigpond.net.au"
+      "bigpond.net.au",
     ],
-    "jobAreas": [
+    jobAreas: [
       "Finance",
       "Technology",
       "Retail",
@@ -1757,9 +1757,9 @@
       "Travel",
       "Publishing",
       "Accounting",
-      "Petroleum"
+      "Petroleum",
     ],
-    "jobTitles": [
+    jobTitles: [
       "Oil Tycoon",
       "Basketball Player",
       "Baseball Player",
@@ -1806,11 +1806,11 @@
       "Stunt Performer",
       "Child Psychologist",
       "Entrepreneur",
-      "Self Employed"
+      "Self Employed",
     ],
-    "names": {
-      "firstNames": {
-        "male": [
+    names: {
+      firstNames: {
+        male: [
           "Mila",
           "Madison",
           "Maya",
@@ -6308,9 +6308,9 @@
           "Zeven",
           "Zhen",
           "Zyeire",
-          "Zyn"
+          "Zyn",
         ],
-        "female": [
+        female: [
           "Emma",
           "Amelia",
           "Sophia",
@@ -11147,10 +11147,10 @@
           "Ferguson",
           "Filiberto",
           "Furious",
-          "Furqan"
-        ]
+          "Furqan",
+        ],
       },
-      "lastNames": [
+      lastNames: [
         "Johnson",
         "Harris",
         "Wright",
@@ -20160,10 +20160,10 @@
         "Abrell",
         "Abide",
         "Abbington",
-        "Aarsvold"
-      ]
+        "Aarsvold",
+      ],
     },
-    "usernames": [
+    usernames: [
       "aaliyah",
       "aaren",
       "aarika",
@@ -30329,19 +30329,21 @@
       "zyana",
       "zyg",
       "zygmunt",
-      "zyle"
-    ]
+      "zyle",
+    ],
   },
-  "phone": {
-    "mobile": {
-      "digitCode": ["example"],
-      "countryCode": "example"
+  phone: {
+    mobile: {
+      digitCode: ["example"],
+      countryCode: "example",
     },
-    "landline": ["example"]
+    landline: ["example"],
   },
-  "vehicle": {
-    "ageIdentifiers": ["example"],
-    "memoryTags": ["example"],
-    "taxClasses": ["example"]
-  }
-}
+  vehicle: {
+    ageIdentifiers: ["example"],
+    memoryTags: ["example"],
+    taxClasses: ["example"],
+  },
+};
+
+export default data;

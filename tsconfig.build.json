@@ -1,13 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "target": "ES2019",
-    "noEmit": false,
-    "emitDeclarationOnly": true,
-    "rootDir": "src",
-    "outDir": "dist/types",
-
-    "skipLibCheck": false
-  },
-  "include": ["src"]
+  "exclude": ["tests", "node_modules", "dist", "eslint.config.mts"]
 }

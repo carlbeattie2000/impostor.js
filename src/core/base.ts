@@ -1,6 +1,6 @@
 import { randomBytes, randomInt } from "node:crypto";
 
-import templateFunctions from "./stringTemplates";
+import templateFunctions from "./stringTemplates.js";
 
 export default class Base {
   alpha: string[];
@@ -172,7 +172,9 @@ export default class Base {
     return template.replace(/(?:#|\?|~|DD|MM|(?:YYYY|YY))/g, (char) => {
       if (char in templateFunctions) {
         const mappedFn = templateFunctions[char];
-        return mappedFn().toString();
+        if (mappedFn) {
+          return mappedFn().toString();
+        }
       }
 
       return char;

@@ -1,5 +1,5 @@
-{
-  "coinPrefixes": [
+const data = {
+  coinPrefixes: [
     "BTC",
     "ETH",
     "USDT",
@@ -35,9 +35,9 @@
     "HBAR",
     "FTT",
     "FIL",
-    "AXS"
+    "AXS",
   ],
-  "coins": [
+  coins: [
     "Bitcoin",
     "Ethereum",
     "Tether",
@@ -78,6 +78,8 @@
     "Ethereum Classic",
     "Elrond",
     "Helium",
-    "Tezos"
-  ]
-}
+    "Tezos",
+  ],
+};
+
+export default data;

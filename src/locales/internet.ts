@@ -1,8 +1,8 @@
-import Base from "../core/base";
-import { UserAgent } from "../core/userAgents";
-import internetGlobalData from "../data/internet.json";
+import Base from "../core/base.js";
+import { UserAgent } from "../core/userAgents.js";
+import data from "../data/internet.js";
 
-import type { Internet } from "../types/locales";
+import type { Internet } from "../types/locales.js";
 
 export default class InternetLocale extends Base {
   internetData: Internet;
@@ -45,7 +45,7 @@ export default class InternetLocale extends Base {
   }
 
   http(): string {
-    return this.randomArrayElement<string>(internetGlobalData.httpMethods);
+    return this.randomArrayElement<string>(data.httpMethods);
   }
 
   port(): number {

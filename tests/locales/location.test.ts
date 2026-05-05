@@ -1,9 +1,9 @@
-import { assertType, expect, expectTypeOf, test } from "vitest";
+import { expect, expectTypeOf, test } from "vitest";
 
-import enGBData from "../../src/data/locales/en_GB.json";
-import LocationLocale from "../../src/locales/location";
+import enGBData from "../../src/data/locales/en_GB.js";
+import LocationLocale from "../../src/locales/location.js";
 
-import type { AddressObject } from "../../src/types/locales";
+import type { AddressObject } from "../../src/types/locales.js";
 
 const testLocation = new LocationLocale(enGBData.location);
 

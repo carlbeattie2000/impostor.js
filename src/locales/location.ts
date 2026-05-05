@@ -1,6 +1,6 @@
-import Base from "../core/base";
+import Base from "../core/base.js";
 
-import type { AddressObject, Location } from "../types/locales";
+import type { AddressObject, Location } from "../types/locales.js";
 
 export default class LocationLocale extends Base {
   locationData: Location;

@@ -1,5 +1,5 @@
-{
-  "httpMethods": [
+const data = {
+  httpMethods: [
     "GET",
     "POST",
     "HEAD",
@@ -8,6 +8,8 @@
     "CONNECT",
     "OPTIONS",
     "TRACE",
-    "PATCH"
-  ]
-}
+    "PATCH",
+  ],
+};
+
+export default data;

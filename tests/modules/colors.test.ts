@@ -1,6 +1,6 @@
-import { assertType, expect, expectTypeOf, test } from "vitest";
+import { expect, expectTypeOf, test } from "vitest";
 
-import ColorModule from "../../src/modules/colors";
+import ColorModule from "../../src/modules/colors.js";
 
 const testColor = new ColorModule();
 

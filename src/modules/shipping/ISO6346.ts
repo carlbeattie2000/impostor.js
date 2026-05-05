@@ -1,4 +1,4 @@
-import Base from "../../core/base";
+import Base from "../../core/base.js";
 
 const charNumericValueMapping: Record<string, number> = {
   A: 10,
@@ -84,12 +84,15 @@ export default class ISO6346 extends Base {
     const code = ownerCode + category + serial;
     let sum = 0;
     for (let i = 0; i < 10; i += 1) {
-      const char = code[i].toUpperCase();
-      let value = charNumericValueMapping[char];
+      const rawChar = code[i];
+      if (rawChar) {
+        const char = rawChar.toUpperCase();
+        let value = charNumericValueMapping[char];
 
-      value ??= Number.parseInt(char, 10);
+        value ??= Number.parseInt(char, 10);
 
-      sum += value * 2 ** i;
+        sum += value * 2 ** i;
+      }
     }
 
     const calculatedCheckDigit = sum % 11 === 10 ? 0 : sum % 11;

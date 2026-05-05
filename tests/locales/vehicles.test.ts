@@ -1,7 +1,7 @@
-import { assertType, expect, expectTypeOf, test } from "vitest";
+import { expect, expectTypeOf, test } from "vitest";
 
-import enGBData from "../../src/data/locales/en_GB.json";
-import VehicleLocale from "../../src/locales/vehicle";
+import enGBData from "../../src/data/locales/en_GB.js";
+import VehicleLocale from "../../src/locales/vehicle.js";
 
 const testVehicle = new VehicleLocale(enGBData.vehicle);
 
