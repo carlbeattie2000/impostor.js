@@ -2,12 +2,12 @@
   "name": "impostor_js",
   "version": "4.1.0",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "dist/index.js",
-      "types": "dist/index.d.ts"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [

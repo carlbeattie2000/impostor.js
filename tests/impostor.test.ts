@@ -1,6 +1,6 @@
 import { expect, expectTypeOf, test } from "vitest";
 
-import Impostor from "../src/index.js";
+import { Impostor } from "../src/index.js";
 
 import type ColorModule from "../src/modules/colors.js";
 import type CryptoModule from "../src/modules/crypto.js";
